@@ -1,4 +1,4 @@
-# code_testing_examples
+### code_testing_examples
 
 ТЗ для тестирования находится в файле <TZ_test_code.txt>
 
