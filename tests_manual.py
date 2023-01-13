@@ -11,6 +11,7 @@ from fixtures.tests_name import test_name
 
 
 def test_case(test_cmd, res):
+    """Блок тестирования, эмулирует работу блока <main>"""
     patients = [1] * 201
     i = 0
     while True:
@@ -33,13 +34,15 @@ def test_case(test_cmd, res):
 
 
 def test():
+    """Блок перебора тестов"""
     now = time.time()
     for test_num in range(len(test_cmd)):
         st_time = time.time()
         print(test_name[test_num])
         test_case(test_cmd[test_num], res[test_num])
         print(f'>>>  Тест успешно пройден за {time.time()-st_time} сек.')
-    print(f'>>>  Тестирование успешно завершеноузнать статус пациента {time.time()-st_time} сек.')
+    print(f'>>>  Тестирование успешно завершено {time.time()-st_time} сек.')
+
 
 if __name__ == '__main__':
     test_cmd = [cmd_list_1, cmd_list_2, cmd_list_3, cmd_list_4_m, cmd_list_5_m, cmd_list_6]

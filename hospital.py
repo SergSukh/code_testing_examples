@@ -2,6 +2,7 @@ from const import STATUS, SYM
 
 
 def input_patient(patients:list, num=None):
+    """Ввод и проверка <ID пациента>"""
     if not num:
         num = input('Введите ID пациента: ')
     for s in str(num):
@@ -15,6 +16,7 @@ def input_patient(patients:list, num=None):
 
 
 def calculate_statistics(patients):
+    """Вывод статистики"""
     sum_patients = len(patients) - patients.count('')
     res = (f'В больнице на данный момент находится {sum_patients} чел., из них:\n')
     for status in (0, 1, 2, 3):
@@ -24,6 +26,7 @@ def calculate_statistics(patients):
 
 
 def discharge(patients, num=None):
+    """Выписка пациента"""
     num = input_patient(patients, num)
     if type(num) == str:
         return num
@@ -32,6 +35,7 @@ def discharge(patients, num=None):
     
 
 def get_status(patients, num=None):
+    """Получе6ние статуса пациента"""
     num = input_patient(patients, num)
     if type(num) == str:
         return num
@@ -39,6 +43,7 @@ def get_status(patients, num=None):
 
 
 def status_down(patients, num=None):
+    """Ухудшение статуса пациента"""
     num = input_patient(patients, num)
     if type(num) == str:
         return num
@@ -49,6 +54,7 @@ def status_down(patients, num=None):
 
 
 def status_up(patients, num=None):
+    """Улучшение статуса пациента"""
     num = input_patient(patients, num)
     if type(num) == str:
         return num
@@ -59,6 +65,7 @@ def status_up(patients, num=None):
 
 
 def check_patient(patients, num):
+    """Запрос подтверждения выписки при повышении статуса"""
     answer = input('Желаете этого клиента выписать? (да/нет): ').lower()
     if answer == 'да':
         return discharge(patients, num)
@@ -66,8 +73,10 @@ def check_patient(patients, num):
 
 
 def stop(patients):
+    """Завершение программы"""
     return 'Сеанс завершён.'
 
 
 def err_except(patients):
+    """Ответ по некорректной команде"""
     return 'Неизвестная команда! Попробуйте ещё раз'
